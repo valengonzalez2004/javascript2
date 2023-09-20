@@ -124,8 +124,10 @@ font-family: 'Rubik Iso', cursive;
 
 .cincuenta{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 30%;
     justify-content: center;
+    gap: 4rem;
+    align-items: center;
 }
 
 .medio{
@@ -143,6 +145,23 @@ font-family: 'Rubik Iso', cursive;
 .foot{
     padding: 10rem;
 }
+
+#respuesta1{
+    font-size: 20px;
+}
+
+#respuesta1:hover{
+    background-color: green;
+}
+
+#respuesta2{
+    font-size: 20px;
+} 
+
+#respuesta2:hover{
+    background-color: red;
+}
+
 
 
 @media (min-width:320px) and (max-width: 767px){
@@ -215,6 +234,9 @@ font-family: 'Rubik Iso', cursive;
     .cincuenta{
         gap: 1rem;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        
     }
 
     #primero{
@@ -274,7 +296,9 @@ font-family: 'Rubik Iso', cursive;
     }
     
     .juego{
+        justify-content: center;
         padding: 1rem;
+        width: 80%;
     }
 
     .abajo{

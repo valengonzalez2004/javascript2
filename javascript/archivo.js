@@ -66,7 +66,7 @@ let botonesRespuesta = document.getElementsByClassName("juego");
 //     alert(respuestaCorrecta);
 //     if (respuesta.toUpperCase() === respuestaCorrecta) {
 //         alert("¡Respuesta correcta!");
-//        // respuestasCorrectas++; // Incrementa el contador de respuestas correctas.
+//         // respuestasCorrectas++; // Incrementa el contador de respuestas correctas.
 //     } else {
 //         alert("Respuesta incorrecta. Inténtalo de nuevo.");
 //     }
