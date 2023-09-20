@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fondo{
+    /* background-image: url(../images/culturajpg.jpg); */
+    background-color: #303036;
+}
+
+h1{
+    color: #f1faee;
+    padding: 4rem;
+    font-size: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Rubik Iso', cursive;
+}
+
+.noticia{
+    text-align: center;
+    padding: 3rem;
+    color: #e0fbfc;
+    font-size: 34px;
+}
+
+.subtitulo{
+    color: #f1faee;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 6rem;
+    font-size: 56px;
+    font-family: 'Rubik Iso', cursive;
+}
+
+.foto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+p{
+    color: #e0fbfc;
+    text-align: center;
+    font-size: 50px;
+}
+
+button{
+    padding: 4rem;
+    font-size: 56px;
+    border-radius: 34%;
+    background-color: #faf0ca;
+    font-family: 'Rubik Iso', cursive;
+    list-style-type: none;
+}
+
+.claro:hover{
+    background-color: #e0fbfc;
+}
+
+.eleccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem;
+}
+
+footer{
+    background-color: #303036;
+    color: #e0fbfc;
+    padding: 2rem;
+}
+
+footer h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
+
+}
+
+.foto{
+    padding: 2rem;
+}
+
+.foto2{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.preguntas{
+    color: #e0fbfc;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.juego{
+    width: 600px;
+    font-size: 30px;
+}
+
+.juego2{
+    width: 600px;
+    font-size: 30px;
+}
+
+.cincuenta{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+}
+
+.medio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.abajo{
+    padding: 10rem
+}
+
+.foot{
+    padding: 10rem;
+}
+
+
+@media (min-width:320px) and (max-width: 767px){
+
+    h1{
+        font-size: 44px;
+    }
+
+    .primero{
+        padding: 3rem;
+    }
+
+    button{
+        border-radius: 30%;
+        padding: 1.5rem;
+        font-size: 40px;
+    }
+
+
+    .eleccion{
+        padding: 2rem;
+        width: 100%;
+    }
+
+    footer{
+        padding: 5rem;
+    }
+
+    footer h2{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .chico{
+        font-size: 30px;
+        text-align: center;
+        padding: 0em;
+    }
+
+    .bienvenida{
+        font-size: 24px;
+    }
+
+    .medio{
+        padding: 0.5rem;
+        display: flex;
+    }
+
+    .foto{
+        padding: 2rem;
+    }
+
+    .foto2{
+        padding: 1rem;
+        width: 326px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .preguntas{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 30px;
+        padding: 2rem;
+    }
+
+    .cincuenta{
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    #primero{
+        font-size: 20px;
+    } 
+
+    #segundo{
+        font-size: 20px;
+    }
+
+    #tercero{
+        font-size: 20px;
+    } 
+
+    #cuarto{
+        font-size: 20px;
+    }
+
+    #primero2{
+        font-size: 20px;
+    } 
+
+    #segundo2{
+        font-size: 20px;
+    }
+
+    #tercero3{
+        font-size: 20px;
+    } 
+
+    #cuarto2{
+        font-size: 20px;
+    }
+
+    #primero3{
+        font-size: 20px;
+    } 
+
+    #respuesta1{
+        font-size: 20px;
+    }
+
+    #respuesta1:hover{
+        background-color: green;
+    }
+
+    #respuesta2{
+        font-size: 20px;
+    } 
+
+    #respuesta2:hover{
+        background-color: red;
+    }
+
+    #cuarto4{
+        font-size: 20px;
+    }
+    
+    .juego{
+        padding: 1rem;
+    }
+
+    .abajo{
+        padding: 1rem;
+    }
+
+    .abajo h1{
+        text-align: center;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 40px;
+        padding: 2rem;
+    }
+    .noticia{
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        font-size: 25px;
+    }
+
+    .volver{
+        padding: 3rem;
+    }
+
+    .subtitulo{
+        font-size: 30px;
+    }
+
+}
