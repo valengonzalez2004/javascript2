@@ -77,8 +77,29 @@ button:hover{
     background-color: thistle;
 }
 
+.centro{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.claro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
 .claro:hover{
     background-color: #e0fbfc;
+}
+
+.volver {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
 }
 
 .eleccion{
@@ -175,17 +196,11 @@ footer h2{
     font-size: 20px;
 }
 
-/* #respuesta1:hover{
-    background-color: green;
-} */
 
 #respuesta2{
     font-size: 20px;
 } 
 
-/* #respuesta2:hover{
-    background-color: red;
-} */
 
 
 
@@ -364,6 +379,10 @@ footer h2{
 
     .subtitulo{
         font-size: 30px;
+    }
+
+    .claro{
+        width: 100%;
     }
 
 }

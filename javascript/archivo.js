@@ -1,40 +1,87 @@
-let temas = [{
-    tema1: "Geografía",
-},
-{
-    tema1: "escritores",
-},
+// let temas = [{
+//     tema1: "Geografía",
+// },
+// {
+//     tema1: "escritores",
+// },
 
-{
-    tema1: "Pintores",
-},
+// {
+//     tema1: "Pintores",
+// },
 
-{
-    tema1: "Montañas",
-}
+// {
+//     tema1: "Montañas",
+// },
 
-]
+// {
+//     tema1: "Monedas",
+// }
+
+// ]
 
     
-localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
-let temasconv = JSON.parse(localStorage.getItem("ObjetoTemas"));
+// localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
+// let temasconv = JSON.parse(localStorage.getItem("ObjetoTemas"));
+// document.addEventListener("DOMContentLoaded", function () {
+//     console.log("DOMContentLoaded event fired.");
+//     document.getElementById("lista").addEventListener("click", function () {
+//         let temasAlmacenados = "Algunos de los temas que veremos hoy:\n";
+//         for (let i = 0; i < temasconv.length; i++) {
+//             temasAlmacenados += temasconv[i].tema1 + "\n";
+//         }
+//         Swal.fire('Any fool can use a computer')
+//         //alert(temasAlmacenados);
+//     });
+// });
+
+// archivo.js
+
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOMContentLoaded event fired.");
-    document.getElementById("lista").addEventListener("click", function () {
-        let temasAlmacenados = "Algunos de los temas que veremos hoy:\n";
-        for (let i = 0; i < temasconv.length; i++) {
-            temasAlmacenados += temasconv[i].tema1 + "\n";
+    const temas = [
+        {
+            tema1: "Geografía",
+        },
+        {
+            tema1: "Escritores",
+        },
+        {
+            tema1: "Pintores",
+        },
+        {
+            tema1: "Montañas",
+        },
+        {
+            tema1: "Monedas",
         }
-        console.log(temasAlmacenados);
+    ];
+
+    localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
+
+    const botonSiguiente = document.getElementById("lista");
+    botonSiguiente.addEventListener("click", function () {
+        const temasGuardados = JSON.parse(localStorage.getItem("ObjetoTemas"));
+
+        let mensaje = "Temas almacenados:\n";
+        for (let i = 0; i < temasGuardados.length; i++) {
+            mensaje += `${i + 1}. ${temasGuardados[i].tema1}\n`;
+        }
+
+        Swal.fire({
+            title: 'Temas Almacenados',
+            text: mensaje,
+            icon: 'info',
+            confirmButtonText: 'OK'
+        });
     });
 });
+
 
 
 let preguntaActual = 0;
 const preguntas = [
     {
         pregunta: "¿Cuál es la capital de Francia?",
-        respuestaCorrecta: "PARIS"
+        respuestaCorrecta: "HELSINKI"
     },
     {
         preguntas: "¿Quién escribió Don Quijote de la Mancha?",
@@ -47,6 +94,10 @@ const preguntas = [
     {
         preguntas: "¿Cuál es la montaña más alta del mundo?",
         respuestaCorrecta: "MONTE EVEREST"
+    },
+    {
+        pregunta: "¿Cuál es la moneda oficial de Japón?",
+        respuestaCorrecta: "YEN"
     }
 ];
 
@@ -68,17 +119,30 @@ for (let i = 0; i < botonesRespuesta.length; i++) {
     });
 }
 
-function comprobarRespuesta(respuesta) {
-    let respuestaIncorrecta = preguntas[preguntaActual].respuestaIncorrecta;
+for (let i = 0; i < botonesRespuesta.length; i++) {
+    botonesRespuesta[i].addEventListener("click", function () {
+        const respuestaTexto = botonesRespuesta[i].textContent;
 
-    if (respuesta.toUpperCase() === respuestaIncorrecta) {
-        Swal.fire(
-            'Respuesta incorrecta',
-            'Inténtalo de nuevo.',
-            'error'
-        );
-    }
+        if (botonesRespuesta[i].classList.contains("respuesta-correcta")) {
+            if (respuestaTexto === "YEN") {
+                window.location.href = "../pages/felicitaciones.html";
+            } else {
+                Swal.fire(
+                    'Respuesta incorrecta',
+                    'Inténtalo de nuevo.',
+                    'error'
+                );
+            }
+        } else {
+            Swal.fire(
+                'Respuesta incorrecta',
+                'Inténtalo de nuevo.',
+                'error'
+            );
+        }
+    });
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const paises = [
