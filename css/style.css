@@ -65,6 +65,10 @@ button{
     list-style-type: none;
 }
 
+button:hover{
+    background-color: thistle;
+}
+
 .claro:hover{
     background-color: #e0fbfc;
 }
@@ -118,8 +122,8 @@ footer h2{
 }
 
 .juego2{
-    width: 600px;
-    font-size: 30px;
+    width: 600px !important;
+    font-size: 30px !important;
 }
 
 .cincuenta{
@@ -150,17 +154,17 @@ footer h2{
     font-size: 20px;
 }
 
-#respuesta1:hover{
+/* #respuesta1:hover{
     background-color: green;
-}
+} */
 
 #respuesta2{
     font-size: 20px;
 } 
 
-#respuesta2:hover{
+/* #respuesta2:hover{
     background-color: red;
-}
+} */
 
 
 
@@ -283,17 +287,17 @@ footer h2{
         font-size: 20px;
     }
 
-    #respuesta1:hover{
+    /* #respuesta1:hover{
         background-color: green;
-    }
+    } */
 
     #respuesta2{
         font-size: 20px;
     } 
 
-    #respuesta2:hover{
+    /* #respuesta2:hover{
         background-color: red;
-    }
+    } */
 
     #cuarto4{
         font-size: 20px;
@@ -303,6 +307,12 @@ footer h2{
         justify-content: center !important;
         padding: 1rem !important;
         width: 80% !important;
+    }
+
+    .juego2{
+        justify-content: center !important;
+        width: 80% !important;
+        padding: 1rem !important;
     }
 
     .abajo{

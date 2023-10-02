@@ -52,45 +52,110 @@ const preguntas = [
 
 let botonesRespuesta = document.getElementsByClassName("juego");
 
-// function comprobarRespuesta(respuesta) {
-//     let respuestaCorrecta = preguntas[preguntaActual].respuestaCorrecta;
-//     alert(respuestaCorrecta);
-//     if (respuesta.toUpperCase() === respuestaCorrecta) {
-//         alert("¡Respuesta correcta!");
-//         // respuestasCorrectas++; // Incrementa el contador de respuestas correctas.
-//     } else {
-//         alert("Respuesta incorrecta. Inténtalo de nuevo.");
-//     }
-//     avanzarPregunta();
-// }
-
-
-// for (let i = 0; i < botonesRespuesta.length; i++) {
-    
-//     Swal.fire(
-//     botonesRespuesta[i].addEventListener("click", function () {
-//         //alert(botonesRespuesta[i].textContent);
-        
-//             'Good job',
-//             botonesRespuesta[i].textContent,
-//             'success'
-//         )    
-//         comprobarRespuesta(botonesRespuesta[i].textContent);
-//     });
-// }
-
 for (let i = 0; i < botonesRespuesta.length; i++) {
     botonesRespuesta[i].addEventListener("click", function () {
         const respuestaTexto = botonesRespuesta[i].textContent;
-        
-        Swal.fire({
-            icon: 'error',
-            text: 'incorrecto', // Aquí mostramos el texto de la respuesta
-        });
 
-        comprobarRespuesta(respuestaTexto);
+        // Verificar si el botón tiene la clase "respuesta-correcta"
+        if (botonesRespuesta[i].classList.contains("respuesta-correcta")) {
+            // No mostrar el SweetAlert en este caso
+            comprobarRespuesta(respuestaTexto);
+        } else {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Confirma tu respuesta:',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    comprobarRespuesta(respuestaTexto);
+                }
+            });
+        }
     });
 }
 
+function comprobarRespuesta(respuesta) {
+    let respuestaCorrecta = preguntas[preguntaActual].respuestaCorrecta;
+
+    if (respuesta.toUpperCase() === respuestaCorrecta) {
+        Swal.fire(
+            '¡Respuesta correcta!',
+            'Has respondido correctamente.',
+            'success'
+        );
+        // Incrementa el contador de pregunta actual
+        preguntaActual++;
+        // Muestra la siguiente pregunta o el mensaje de finalización
+        mostrarPregunta();
+    } else {
+        Swal.fire(
+            'Respuesta incorrecta',
+            'Inténtalo de nuevo.',
+            'error'
+        );
+    }
+}
+
+function mostrarPregunta() {
+    if (preguntaActual < preguntas.length) {
+        const pregunta = preguntas[preguntaActual].pregunta;
+        document.getElementById("textoPregunta").textContent = pregunta;
+    } else {
+        Swal.fire(
+            '¡Juego completado!',
+            'Has respondido todas las preguntas correctamente.',
+            'success'
+        );
+    }
+}
 
 mostrarPregunta();
+
+// for (let i = 0; i < botonesRespuesta.length; i++) {
+//     botonesRespuesta[i].addEventListener("click", function () {
+//         const respuestaTexto = botonesRespuesta[i].textContent;
+
+//         Swal.fire({
+//             title: '¿Estás seguro?',
+//             text: 'Confirma tu respuesta:',
+//             icon: 'question',
+//             showCancelButton: true,
+//             confirmButtonText: 'Sí',
+//             cancelButtonText: 'No'
+//         }).then((result) => {
+//             if (result.isConfirmed) {
+//                 comprobarRespuesta(respuestaTexto);
+//             }
+//         });
+//     });
+// }
+
+// function comprobarRespuesta(respuesta) {
+//     let respuestaCorrecta = preguntas[preguntaActual].respuestaCorrecta;
+
+//     if (respuesta.toUpperCase() === respuestaCorrecta) {
+//         Swal.fire(
+//             '¡Respuesta correcta!',
+//             'Has respondido correctamente.',
+//             'success'
+//         );
+//         // Incrementa el contador de pregunta actual
+//         preguntaActual++;
+//         // Muestra la siguiente pregunta o el mensaje de finalización
+//         mostrarPregunta();
+//     } else {
+//         Swal.fire(
+//             'Respuesta incorrecta',
+//             'Inténtalo de nuevo.',
+//             'error'
+//         );
+//     }
+// }
+
+
+
+
+// mostrarPregunta();
