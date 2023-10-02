@@ -56,41 +56,22 @@ for (let i = 0; i < botonesRespuesta.length; i++) {
     botonesRespuesta[i].addEventListener("click", function () {
         const respuestaTexto = botonesRespuesta[i].textContent;
 
-        // Verificar si el botón tiene la clase "respuesta-correcta"
         if (botonesRespuesta[i].classList.contains("respuesta-correcta")) {
-            // No mostrar el SweetAlert en este caso
             comprobarRespuesta(respuestaTexto);
         } else {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: 'Confirma tu respuesta:',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Sí',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    comprobarRespuesta(respuestaTexto);
-                }
-            });
+            Swal.fire(
+                'Respuesta incorrecta',
+                'Inténtalo de nuevo.',
+                'error'
+            );
         }
     });
 }
 
 function comprobarRespuesta(respuesta) {
-    let respuestaCorrecta = preguntas[preguntaActual].respuestaCorrecta;
+    let respuestaIncorrecta = preguntas[preguntaActual].respuestaIncorrecta;
 
-    if (respuesta.toUpperCase() === respuestaCorrecta) {
-        Swal.fire(
-            '¡Respuesta correcta!',
-            'Has respondido correctamente.',
-            'success'
-        );
-        // Incrementa el contador de pregunta actual
-        preguntaActual++;
-        // Muestra la siguiente pregunta o el mensaje de finalización
-        mostrarPregunta();
-    } else {
+    if (respuesta.toUpperCase() === respuestaIncorrecta) {
         Swal.fire(
             'Respuesta incorrecta',
             'Inténtalo de nuevo.',
@@ -99,63 +80,49 @@ function comprobarRespuesta(respuesta) {
     }
 }
 
-function mostrarPregunta() {
-    if (preguntaActual < preguntas.length) {
-        const pregunta = preguntas[preguntaActual].pregunta;
-        document.getElementById("textoPregunta").textContent = pregunta;
-    } else {
-        Swal.fire(
-            '¡Juego completado!',
-            'Has respondido todas las preguntas correctamente.',
-            'success'
-        );
-    }
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const paises = [
+        {
+            pais: "Argentina",
+            capital: "Buenos Aires",
+            habitantes: "46.044703",
+            comida: "Asado",
+        },
+        {
+            pais: "Rusia",
+            capital: "Moscu",
+            habitantes: "145.558000",
+            comida: "Borsch",
+        },
+        {
+            pais: "Estados Unidos",
+            capital: "Washington",
+            habitantes: "332.314000",
+            comida: "Hamburguesas y hot dogs",
+        },
+    ];
 
-mostrarPregunta();
+    const botonesPais = document.querySelectorAll(".paises button");
 
-// for (let i = 0; i < botonesRespuesta.length; i++) {
-//     botonesRespuesta[i].addEventListener("click", function () {
-//         const respuestaTexto = botonesRespuesta[i].textContent;
+    botonesPais.forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            const paisIndex = Array.from(botonesPais).indexOf(boton);
+            const paisElegido = paises[paisIndex];
 
-//         Swal.fire({
-//             title: '¿Estás seguro?',
-//             text: 'Confirma tu respuesta:',
-//             icon: 'question',
-//             showCancelButton: true,
-//             confirmButtonText: 'Sí',
-//             cancelButtonText: 'No'
-//         }).then((result) => {
-//             if (result.isConfirmed) {
-//                 comprobarRespuesta(respuestaTexto);
-//             }
-//         });
-//     });
-// }
+            const habitantesTexto = String(paisElegido.habitantes); 
+            
+            Swal.fire({
+                title: paisElegido.pais,
+                html: `
+                    <p><strong>Capital:</strong> ${paisElegido.capital}</p>
+                    <p><strong>Habitantes:</strong> ${habitantesTexto}</p>
+                    <p><strong>Comida típica:</strong> ${paisElegido.comida}</p>
+                `,
+                icon: 'info',
+                confirmButtonText: 'OK',
+                text: 'black'
+            });
+        });
+    });
+});
 
-// function comprobarRespuesta(respuesta) {
-//     let respuestaCorrecta = preguntas[preguntaActual].respuestaCorrecta;
-
-//     if (respuesta.toUpperCase() === respuestaCorrecta) {
-//         Swal.fire(
-//             '¡Respuesta correcta!',
-//             'Has respondido correctamente.',
-//             'success'
-//         );
-//         // Incrementa el contador de pregunta actual
-//         preguntaActual++;
-//         // Muestra la siguiente pregunta o el mensaje de finalización
-//         mostrarPregunta();
-//     } else {
-//         Swal.fire(
-//             'Respuesta incorrecta',
-//             'Inténtalo de nuevo.',
-//             'error'
-//         );
-//     }
-// }
-
-
-
-
-// mostrarPregunta();

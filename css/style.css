@@ -19,6 +19,14 @@ h1{
     font-family: 'Rubik Iso', cursive !important;
 }
 
+.atras{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem;
+}
+
 .noticia{
     text-align: center;
     padding: 3rem;
@@ -51,7 +59,7 @@ a{
 }
 
 p{
-    color: #e0fbfc;
+    color: black;
     text-align: center;
     font-size: 50px !important;
 }
@@ -94,6 +102,19 @@ footer h2{
     font-family: 'Playfair Display', serif !important;
     font-family: 'Rubik Iso', cursive !important;
 
+}
+
+.paises{ 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bienvenida{
+    color:#e0fbfc ;
 }
 
 .foto{
@@ -245,6 +266,10 @@ footer h2{
 
     a{
         width: 100%;
+    }
+
+    .paises{
+        padding: 0.5rem;
     }
 
     #primero{
