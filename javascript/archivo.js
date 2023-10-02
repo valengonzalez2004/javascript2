@@ -15,6 +15,7 @@ let temas = [{
 
 ]
 
+    
 localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
 let temasconv = JSON.parse(localStorage.getItem("ObjetoTemas"));
 document.addEventListener("DOMContentLoaded", function () {
@@ -24,20 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < temasconv.length; i++) {
             temasAlmacenados += temasconv[i].tema1 + "\n";
         }
-        alert(temasAlmacenados);
+        console.log(temasAlmacenados);
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("jugar").addEventListener("click", function () {
-        let temasAlmacenados = "Algunos de los temas que veremos hoy:\n";
-        for (let i = 0; i < temas.length; i++) {
-            temasAlmacenados += temas[i].tema1 + "\n";
-        }
-        alert(temasAlmacenados);
-
-    });
-});
 
 let preguntaActual = 0;
 const preguntas = [
@@ -74,11 +65,32 @@ let botonesRespuesta = document.getElementsByClassName("juego");
 // }
 
 
+// for (let i = 0; i < botonesRespuesta.length; i++) {
+    
+//     Swal.fire(
+//     botonesRespuesta[i].addEventListener("click", function () {
+//         //alert(botonesRespuesta[i].textContent);
+        
+//             'Good job',
+//             botonesRespuesta[i].textContent,
+//             'success'
+//         )    
+//         comprobarRespuesta(botonesRespuesta[i].textContent);
+//     });
+// }
+
 for (let i = 0; i < botonesRespuesta.length; i++) {
     botonesRespuesta[i].addEventListener("click", function () {
-        alert(botonesRespuesta[i].textContent);
-        comprobarRespuesta(botonesRespuesta[i].textContent);
+        const respuestaTexto = botonesRespuesta[i].textContent;
+        
+        Swal.fire({
+            icon: 'error',
+            text: 'incorrecto', // Aquí mostramos el texto de la respuesta
+        });
+
+        comprobarRespuesta(respuestaTexto);
     });
 }
+
 
 mostrarPregunta();
