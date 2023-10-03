@@ -16,7 +16,9 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-family: 'Rubik Iso', cursive !important;
+    font-family: 'Oswald', sans-serif !important;
+font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
 }
 
 .atras{
@@ -41,7 +43,9 @@ h1{
     justify-content: center;
     padding: 6rem;
     font-size: 56px;
-    font-family: 'Rubik Iso', cursive !important;
+    font-family: 'Oswald', sans-serif !important;
+font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
 }
 
 .foto{
@@ -69,7 +73,9 @@ button{
     font-size: 56px !important;
     border-radius: 34% !important;
     background-color: #faf0ca;
-    font-family: 'Rubik Iso', cursive !important;
+    font-family: 'Oswald', sans-serif !important;
+font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
     list-style-type: none;
 }
 
@@ -120,8 +126,9 @@ footer h2{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-family: 'Playfair Display', serif !important;
-    font-family: 'Rubik Iso', cursive !important;
+    font-family: 'Oswald', sans-serif !important;
+font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
 
 }
 
@@ -227,12 +234,13 @@ footer h2{
     }
 
     footer{
-        padding: 5rem;
+        padding: 1rem;
     }
 
     footer h2{
         display: flex;
         flex-direction: row;
+        width: 100%;
     }
 
     .chico{
@@ -385,4 +393,7 @@ footer h2{
         width: 100%;
     }
 
+    .foot{
+        padding: 1rem;
+    }
 }

@@ -1,40 +1,3 @@
-// let temas = [{
-//     tema1: "Geografía",
-// },
-// {
-//     tema1: "escritores",
-// },
-
-// {
-//     tema1: "Pintores",
-// },
-
-// {
-//     tema1: "Montañas",
-// },
-
-// {
-//     tema1: "Monedas",
-// }
-
-// ]
-
-    
-// localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
-// let temasconv = JSON.parse(localStorage.getItem("ObjetoTemas"));
-// document.addEventListener("DOMContentLoaded", function () {
-//     console.log("DOMContentLoaded event fired.");
-//     document.getElementById("lista").addEventListener("click", function () {
-//         let temasAlmacenados = "Algunos de los temas que veremos hoy:\n";
-//         for (let i = 0; i < temasconv.length; i++) {
-//             temasAlmacenados += temasconv[i].tema1 + "\n";
-//         }
-//         Swal.fire('Any fool can use a computer')
-//         //alert(temasAlmacenados);
-//     });
-// });
-
-// archivo.js
 
 document.addEventListener("DOMContentLoaded", function () {
     const temas = [
@@ -52,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             tema1: "Monedas",
-        }
+        },
     ];
 
     localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
@@ -98,7 +61,7 @@ const preguntas = [
     {
         pregunta: "¿Cuál es la moneda oficial de Japón?",
         respuestaCorrecta: "YEN"
-    }
+    },
 ];
 
 let botonesRespuesta = document.getElementsByClassName("juego");
@@ -109,30 +72,6 @@ for (let i = 0; i < botonesRespuesta.length; i++) {
 
         if (botonesRespuesta[i].classList.contains("respuesta-correcta")) {
             comprobarRespuesta(respuestaTexto);
-        } else {
-            Swal.fire(
-                'Respuesta incorrecta',
-                'Inténtalo de nuevo.',
-                'error'
-            );
-        }
-    });
-}
-
-for (let i = 0; i < botonesRespuesta.length; i++) {
-    botonesRespuesta[i].addEventListener("click", function () {
-        const respuestaTexto = botonesRespuesta[i].textContent;
-
-        if (botonesRespuesta[i].classList.contains("respuesta-correcta")) {
-            if (respuestaTexto === "YEN") {
-                window.location.href = "../pages/felicitaciones.html";
-            } else {
-                Swal.fire(
-                    'Respuesta incorrecta',
-                    'Inténtalo de nuevo.',
-                    'error'
-                );
-            }
         } else {
             Swal.fire(
                 'Respuesta incorrecta',
