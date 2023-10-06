@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const temas = [
         {
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("ObjetoTemas", JSON.stringify(temas));
 
-    const botonSiguiente = document.getElementById("lista");
+    let botonSiguiente = document.getElementById("lista");
     botonSiguiente.addEventListener("click", function () {
         const temasGuardados = JSON.parse(localStorage.getItem("ObjetoTemas"));
 
@@ -28,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < temasGuardados.length; i++) {
             mensaje += `${i + 1}. ${temasGuardados[i].tema1}\n`;
         }
+
+        console.log(temasGuardados);
 
         Swal.fire({
             title: 'Temas Almacenados',
@@ -37,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 
 
 let preguntaActual = 0;
@@ -105,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     ];
 
+
+
     const botonesPais = document.querySelectorAll(".paises button");
 
     botonesPais.forEach(function (boton) {
@@ -127,5 +129,40 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+});
+
+function cargarDatosDesdeServidor() {
+    return new Promise((resolve, reject) => {
+        fetch("https://api.example.com/datos")
+            .then((response) => {
+                if (!response.ok) {
+                    reject(new Error("No se pudieron cargar los datos."));
+                }
+                return response.json();
+            })
+            .then((data) => {
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+    });
+}
+
+cargarDatosDesdeServidor()
+    .then((datos) => {
+        console.log(datos);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
+    let botonRegistro = document.getElementById("registro");
+botonRegistro.addEventListener("click", function () {
+    Swal.fire(
+        'Gracias por tu confianza!',
+        'Hermosos gustos, gracias por compartirlos!',
+        'success'
+    );
 });
 

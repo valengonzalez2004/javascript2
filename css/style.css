@@ -108,6 +108,31 @@ button:hover{
     
 }
 
+.estilos{
+    color: #e0fbfc;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bot{
+    padding: 1rem;
+    font-size: 10px;
+    border-radius: 40%;
+}
+
+.bot2{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
 .eleccion{
     display: flex;
     flex-direction: column;
@@ -120,6 +145,52 @@ footer{
     background-color: #303036;
     color: #e0fbfc;
     padding: 2rem;
+}
+
+.primero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0fbfc;
+    font-family: 'Oswald', sans-serif !important;
+font-family: 'Playfair Display', serif;
+font-family: 'Rubik Iso', cursive;
+}
+
+.primero1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0fbfc;
+}
+
+.segundo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0fbfc;
+}
+
+.tercero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0fbfc;
+}
+
+.cuarto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.recto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 footer h2{
@@ -227,6 +298,10 @@ font-family: 'Rubik Iso', cursive;
         font-size: 40px !important;
     }
 
+    .bot{
+        font-size: 344px;
+        padding: 0.5rem;
+    }
 
     .eleccion{
         padding: 2rem !important;
@@ -286,6 +361,8 @@ font-family: 'Rubik Iso', cursive;
         flex-direction: column !important;
         
     }
+
+
 
     a{
         width: 100%;
