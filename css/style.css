@@ -141,6 +141,18 @@ button:hover{
     padding: 3rem;
 }
 
+.registro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 10px;
+    padding: 2rem;
+}
+
+.registro2{
+    font-size: 3px;
+}
+
 footer{
     background-color: #303036;
     color: #e0fbfc;

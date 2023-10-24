@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
+
 let preguntaActual = 0;
 const preguntas = [
     {
@@ -131,38 +134,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function cargarDatosDesdeServidor() {
-    return new Promise((resolve, reject) => {
-        fetch("https://api.example.com/datos")
-            .then((response) => {
-                if (!response.ok) {
-                    reject(new Error("No se pudieron cargar los datos."));
-                }
-                return response.json();
-            })
-            .then((data) => {
-                resolve(data);
-            })
-            .catch((error) => {
-                reject(error);
-            });
+
+const jugadoresRegistrados = JSON.parse(localStorage.getItem("JugadoresRegistrados")) || [];
+
+function registrarJugador(nombreJugador) {
+    jugadoresRegistrados.push(nombreJugador);
+    localStorage.setItem("JugadoresRegistrados", JSON.stringify(jugadoresRegistrados));
+}
+
+function mostrarHistorialJugadores() {
+    const listaJugadores = jugadoresRegistrados.join("\n");
+    Swal.fire({
+        title: 'Historial de Jugadores Registrados',
+        text: listaJugadores || 'Aún no hay jugadores registrados.',
+        icon: 'info',
+        confirmButtonText: 'OK'
     });
 }
 
-cargarDatosDesdeServidor()
-    .then((datos) => {
-        console.log(datos);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-
-    let botonRegistro = document.getElementById("registro");
+let botonRegistro = document.getElementById("registro");
 botonRegistro.addEventListener("click", function () {
-    Swal.fire(
-        'Gracias por tu confianza!',
-        'Hermosos gustos, gracias por compartirlos!',
-        'success'
-    );
+    const nombreJugador = prompt("Ingresa tu nombre:");
+    if (nombreJugador) {
+        registrarJugador(nombreJugador);
+        Swal.fire(
+            'Registro Exitoso',
+            `¡Gracias, ${nombreJugador}, por registrarte!`,
+            'success'
+        );
+    }
 });
+
+let botonHistorialJugadores = document.getElementById("historialJugadores");
+botonHistorialJugadores.addEventListener("click", mostrarHistorialJugadores);
+
 
